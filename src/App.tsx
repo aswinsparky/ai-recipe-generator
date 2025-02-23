@@ -30,14 +30,18 @@ function App() {
   return (
     <div className="container">
       <h1>AI Recipe Generator</h1>
-      <textarea
-        placeholder="Enter ingredients (comma-separated)"
-        value={ingredients}
-        onChange={(e) => setIngredients(e.target.value)}
-      />
-      <button onClick={fetchRecipe} disabled={loading}>
-        {loading ? 'Generating...' : 'Generate Recipe'}
-      </button>
+      <div className="input-container">
+        <textarea
+          placeholder="Enter ingredients (comma-separated)"
+          value={ingredients}
+          onChange={(e) => setIngredients(e.target.value)}
+        />
+      </div>
+      <div className="button-container">
+        <button onClick={fetchRecipe} disabled={loading}>
+          {loading ? 'Generating...' : 'Generate Recipe'}
+        </button>
+      </div>
       {recipe && <div className="recipe-result"><h2>Generated Recipe:</h2><p>{recipe}</p></div>}
     </div>
   );
